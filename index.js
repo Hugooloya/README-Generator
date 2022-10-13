@@ -12,7 +12,7 @@ inquirer.prompt(
         },
         {
             type: 'input',
-            message: 'Please write a short description of your project',
+            message: 'Please write a short description of your project:',
             name: 'description',
             validate: (value) => { if (value) { return true } else { return 'I need a value to continue' } },
         },
@@ -72,31 +72,30 @@ inquirer.prompt(
     email
 }) => {
     const template = `
- # ${title};
+ # ${title}
 
- ## Description
- ${description};
+ ${description}
 
  * [Installation](#installation) 
  * [Usage](#usage) 
  * [License](#license) 
  * [Contributing](#contributing) 
- * [Tests](#tests) 
+ * [Tests](##tests) 
+ 
  ## Installation
- ${installation};
-     
+ ${installation}     
  ## Usage
- ${usage};
+ ${usage}
  ## License
- ${license};
+ ${license}
  ## Contributing
- ${contributing};
+ ${contributing}
  ## Running Tests
- ${tests};
+ ${tests}
   
  ## Questions
- * GitHub :${github};
- * E-mail :${email}`;
+ * GitHub: ${github}
+ * E-mail: ${email}`;
 createNewFile(title,template);
 }
 );
